@@ -1,11 +1,20 @@
-<h1>Login!</h1>
+<div class="container center">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h1>Login!</h1>
 
-<%= form_tag login_path do %>
-  <div class="">
-    <%= text_field_tag :email, placeholder: :email %>
+      <%= form_tag login_path do %>
+
+        <div class="form-group">
+          <%= text_field_tag :email, nil, class: "form-control center", placeholder: :email%>
+        </div>
+        <div class="form-group">
+          <%= password_field_tag :password, nil, class: "form-control center", placeholder: :password %>
+        </div>
+        <br>
+        <%= submit_tag :submit, class: "btn btn-primary" %>
+
+      <% end %>
+    </div>
   </div>
-  <div class="">
-    <%= password_field_tag :password, placeholder: :password %>
-  </div>
-  <%= submit_tag :submit, class: 'btn btn-primary' %>
-<% end %>
+</div>

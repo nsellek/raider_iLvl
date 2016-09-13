@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RaiderIlvl</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>RaiderIlvl</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <% if current_user %>
-      Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
-    <% else %>
-      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-    <% end %>
-    <%= yield %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </body>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to "Raider iLvl", root_path, class: "navbar-brand" %>
+      </div>
+      <ul class="nav navbar-nav">
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li><%=link_to current_user.user_name.capitalize, dashboard_path %></li> <li><%= link_to "Logout", logout_path %></li>
+        <% else %>
+        <li><%= link_to 'Login', login_path %></li> <li><%= link_to 'Signup', signup_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <%= yield %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</body>
 </html>

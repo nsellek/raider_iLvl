@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_filter :authorize, except: [:new, :create]
   def new
     @user = User.new
   end
@@ -15,9 +15,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def dashboard
+  end
+
   private
 
     def allowed_user_params
-      params.require(:user).allow(:user_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:user_name, :email, :password, :password_confirmation)
     end
 end
