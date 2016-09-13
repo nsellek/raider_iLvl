@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912213626) do
+ActiveRecord::Schema.define(version: 20160913223726) do
+
+  create_table "guilds", force: :cascade do |t|
+    t.string   "guild_name"
+    t.string   "realm"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_guilds_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "user_name"
@@ -18,6 +27,8 @@ ActiveRecord::Schema.define(version: 20160912213626) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "guild_id"
+    t.index ["guild_id"], name: "index_users_on_guild_id"
   end
 
 end

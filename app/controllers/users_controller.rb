@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    @guild = current_user.guild
   end
 
   private
