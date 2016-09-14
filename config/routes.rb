@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   # user paths
   get "dashboard" => "users#dashboard"
   # guild paths
-  resources :guild
-  # get "new_guild" => 'guilds#new'
-  # post "new_guild" => 'guilds#create'
-  # get "delete_guild" => 'guilds#destory'
-  # get "guild/:id" => 'guilds#show'
+  resources :guilds
+
 end

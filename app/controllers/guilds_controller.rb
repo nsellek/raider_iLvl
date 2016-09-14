@@ -1,4 +1,4 @@
-class GuildController < ApplicationController
+class GuildsController < ApplicationController
   def new
     @realm = RealmNameService.realm_name
     @guild = Guild.new

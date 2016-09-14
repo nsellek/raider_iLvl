@@ -3,18 +3,19 @@
 
   <% if current_user.guild_id.nil? %>
     <%= button_to "Add Guild", new_guild_path, class: "btn btn-default", method: :get %>
-  <% end %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <table class="table">
-        <tr>
-          <td><%= @guild.guild_name %></td>
-          <td><%= @guild.realm %></td>
-          <td><%= button_to "Show Characters", @guild, class: "btn btn-primary", method: :get %></td>
-        </tr>
-      </table>
+  <% else %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <table class="table">
+            <tr>
+              <td style="vertical-align: middle;"><%= @guild.guild_name %></td>
+              <td style="vertical-align: middle;"><%= @guild.realm %></td>
+              <td><%= button_to "Show Characters", @guild, class: "btn btn-primary", method: :get %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  <% end %>
 </div>

@@ -6,12 +6,14 @@
           <th>Name</th>
           <th>Realm</th>
           <th>Spec</th>
+          <!-- <th>Image</th> -->
         </tr>
         <% @members.each do |member| %>
         <tr>
           <td><%= member['name'] %></td>
           <td><%= member["realm"] %></td>
           <td><%= member['spec']['name'] %></td>
+          <!-- <td><%#= image_tag(member["thumbnail"])%></td> -->
         </tr>
         <% end %>
       </table>
