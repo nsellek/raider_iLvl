@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'guild/new'
-
-  get 'guild/create'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "home#home"
@@ -16,7 +12,9 @@ Rails.application.routes.draw do
   # user paths
   get "dashboard" => "users#dashboard"
   # guild paths
-  get "new_guild" => 'guild#new'
-  post "new_guild" => 'guild#create'
-  get "delete_guild" => 'guild#destory'
+  resources :guild
+  # get "new_guild" => 'guilds#new'
+  # post "new_guild" => 'guilds#create'
+  # get "delete_guild" => 'guilds#destory'
+  # get "guild/:id" => 'guilds#show'
 end

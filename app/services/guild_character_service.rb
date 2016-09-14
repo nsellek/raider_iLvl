@@ -1,0 +1,12 @@
+class GuildCharacterService
+
+  def self.guild_roster(guild)
+    realm = SpaceCleanerService.clean(guild.realm)
+    guild_name = SpaceCleanerService.clean(guild.guild_name)
+    get_characters(realm, guild_name)
+  end
+
+  def self.get_characters(realm, guild_name)
+    HTTParty.get("https://us.api.battle.net/wow/guild/#{realm}/#{guild_name}?fields=members&locale=en_US&apikey=#{ENV["guild_raider_key"]}")[:members]
+  end
+end

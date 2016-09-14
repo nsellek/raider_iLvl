@@ -19,6 +19,11 @@ class GuildController < ApplicationController
   def destory
   end
 
+  def show
+    @guild = Guild.find(params[:id])
+    @members = GuildCharacterService.guild_roster(@guild)
+  end
+
   private
     def allowed_params
       params.require(:guild).permit(:guild_name, :realm)
