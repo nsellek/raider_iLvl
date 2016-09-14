@@ -37,9 +37,7 @@ ActiveRecord::Schema.define(version: 20160913235733) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "guild_id"
-    t.index ["guild_id"], name: "index_users_on_guild_id", using: :btree
   end
 
   add_foreign_key "guilds", "users"
-  add_foreign_key "users", "guilds"
 end

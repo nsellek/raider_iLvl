@@ -1,4 +1,5 @@
 class GuildsController < ApplicationController
+  before_filter :find_guild, only: [:show, :destroy]
   def new
     @realm = RealmNameService.realm_name
     @guild = Guild.new
@@ -16,16 +17,22 @@ class GuildsController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
+    current_user.update(guild_id: nil)
+    @guild.delete
+    redirect_to dashboard_path
   end
 
   def show
-    @guild = Guild.find(params[:id])
     @members = GuildCharacterService.guild_roster(@guild)
   end
 
   private
     def allowed_params
       params.require(:guild).permit(:guild_name, :realm)
+    end
+
+    def find_guild
+      @guild = Guild.find(params[:id])
     end
 end

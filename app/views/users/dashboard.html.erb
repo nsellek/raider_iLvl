@@ -12,6 +12,26 @@
               <td style="vertical-align: middle;"><%= @guild.guild_name %></td>
               <td style="vertical-align: middle;"><%= @guild.realm %></td>
               <td><%= button_to "Show Characters", @guild, class: "btn btn-primary", method: :get %></td>
+              <td><%= button_to "Delete", guild_path(@guild), class: "btn btn-danger", method: :delete %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <%= button_to "Add Raid Group", nil, class: "btn btn-default", method: :get %>
+        </div>
+        <div class="col-md-10">
+          <table class="table">
+            <tr>
+              <th>Group Name</th>
+              <th>Member Count</th>
+              <th>Average iLvl</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </table>
         </div>
