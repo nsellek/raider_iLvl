@@ -3,13 +3,13 @@
     <div class="col-md-4 col-md-offset-4">
       <h1>New Guild</h1>
 
-      <%= form_for @guild do |f| %>
+      <%= form_for @guild, url: new_guild_path do |f| %>
 
         <div class="form-group">
           <%= f.text_field :guild_name, class: "form-control center", placeholder: :guild_name%>
         </div>
         <div class="form-group">
-          <%= f.select :realm,  %>
+          <%= f.select :realm, @realm %>
         </div>
         <br>
         <%= f.submit "Submit", class: "btn btn-primary" %>

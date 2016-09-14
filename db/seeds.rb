@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+response = HTTParty.get('https://worldofwarcraft.com/en-us/game/status')
+
+pars_body = Nokogiri::HTML(response)
+table = pars_body.css(".SortTable-row")
+
+ table.each do |row|
+   Realm.create({realm_name: row.at_css(".SortTable-col:nth-child(2)").text})
+   puts "Created #{row.at_css(".SortTable-col:nth-child(2)").text}"
+ end
+ Realm.all.first.delete

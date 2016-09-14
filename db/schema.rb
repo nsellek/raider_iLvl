@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913223726) do
+ActiveRecord::Schema.define(version: 20160913235733) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "guilds", force: :cascade do |t|
     t.string   "guild_name"
@@ -18,7 +21,13 @@ ActiveRecord::Schema.define(version: 20160913223726) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_guilds_on_user_id"
+    t.index ["user_id"], name: "index_guilds_on_user_id", using: :btree
+  end
+
+  create_table "realms", force: :cascade do |t|
+    t.string   "realm_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -28,7 +37,9 @@ ActiveRecord::Schema.define(version: 20160913223726) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "guild_id"
-    t.index ["guild_id"], name: "index_users_on_guild_id"
+    t.index ["guild_id"], name: "index_users_on_guild_id", using: :btree
   end
 
+  add_foreign_key "guilds", "users"
+  add_foreign_key "users", "guilds"
 end
