@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get "dashboard" => "users#dashboard"
   # guild paths
   resources :guilds
+  resources :raid_groups
 
 end

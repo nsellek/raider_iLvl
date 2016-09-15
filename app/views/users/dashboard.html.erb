@@ -19,20 +19,28 @@
       </div>
       <div class="row">
         <div class="col-md-2">
-          <%= button_to "Add Raid Group", nil, class: "btn btn-default", method: :get %>
+          <%= button_to "Add Raid Group", new_raid_group_path, class: "btn btn-default", method: :get %>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-8 col-md-offset-1">
           <table class="table">
             <tr>
-              <th>Group Name</th>
-              <th>Member Count</th>
-              <th>Average iLvl</th>
+              <th class="center">Group Name</th>
+              <th class="center">Member Count</th>
+              <th class="center">Average iLvl</th>
+              <th class="center" colspan="3">Actions</th>
             </tr>
+            <% if @raid_groups %>
+            <% @raid_groups.each do |raid_group| %>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td><%= raid_group.group_name %></td>
+              <td><%= raid_group.total_people %></td>
+              <td><%= raid_group.average_ilvl %></td>
+              <td><%= button_to "Add Members", nil, class: "btn btn-success", method: :get %></td>
+              <td><%= button_to "View Members", nil, class: "btn btn-primary", method: :get %></td>
+              <td><%= button_to "Delete", raid_group_path(raid_group), class: "btn btn-danger", method: :delete %></td>
             </tr>
+            <% end %>
+            <% end %>
           </table>
         </div>
       </div>

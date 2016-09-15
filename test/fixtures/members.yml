@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  realm: MyString
+  iLvl: 1
+  spec: MyString
+  raid_group: 
+
+two:
+  name: MyString
+  realm: MyString
+  iLvl: 1
+  spec: MyString
+  raid_group: 
