@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20160914221449) do
     t.integer  "average_ilvl"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_raid_groups_on_user_id", using: :btree
+    t.integer  "guild_id"
+    t.index ["guild_id"], name: "index_raid_groups_on_guild_id", using: :btree
   end
 
   create_table "realms", force: :cascade do |t|
@@ -61,5 +61,5 @@ ActiveRecord::Schema.define(version: 20160914221449) do
   end
 
   add_foreign_key "guilds", "users"
-  add_foreign_key "raid_groups", "users"
+  add_foreign_key "raid_groups", "guilds"
 end

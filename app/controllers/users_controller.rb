@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @guild = current_user.guild
-    @raid_groups = current_user.raid_groups
+    @raid_groups = current_user.guild.raid_groups unless current_user.guild.nil?
   end
 
   private

@@ -18,8 +18,8 @@ class GuildsController < ApplicationController
   end
 
   def destroy
+    @guild.destroy!
     current_user.update(guild_id: nil)
-    @guild.delete
     redirect_to dashboard_path
   end
 

@@ -6,7 +6,7 @@ class RaidGroupsController < ApplicationController
 
   def create
     group = RaidGroup.new(allowed_params)
-    group.user_id = current_user.id
+    group.guild_id = current_user.guild.id
     if group.save!
       redirect_to dashboard_path
     else
