@@ -4,9 +4,9 @@ class GuildApiCleanerService
     characters = []
     response.each do |member|
       add_thumbnail_path(member)
-      characters << member["character"] if member["character"]["spec"]
+      characters << member["character"] if member["character"]["level"] >= 110
     end
-    characters
+    GuildSpecFinderService.find_and_add_spec(characters)
   end
 
   def self.add_thumbnail_path(member)
