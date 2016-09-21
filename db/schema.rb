@@ -37,8 +37,7 @@ ActiveRecord::Schema.define(version: 20160914221449) do
 
   create_table "raid_groups", force: :cascade do |t|
     t.string   "group_name"
-    t.integer  "total_people"
-    t.integer  "average_ilvl"
+    t.string   "average_ilvl"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "guild_id"

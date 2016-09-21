@@ -20,6 +20,10 @@ class RaidGroupsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def show
+    @group = RaidGroup.find(params[:id])
+  end
+
   private
 
   def allowed_params
