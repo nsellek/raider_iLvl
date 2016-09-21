@@ -6,7 +6,8 @@ class GuildApiCleanerService
       add_thumbnail_path(member)
       characters << member["character"] if member["character"]["level"] >= 110
     end
-    GuildSpecFinderService.find_and_add_spec(characters)
+    characters
+    # GuildSpecFinderService.find_and_add_spec(characters)
   end
 
   def self.add_thumbnail_path(member)
