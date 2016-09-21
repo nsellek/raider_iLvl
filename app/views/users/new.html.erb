@@ -12,13 +12,13 @@
           <%=f.text_field :email, class: "form-control center", placeholder: :email %>
         </div>
         <div class="form-group">
-          <%= f.password_field :password, class: "form-control center", placeholder: :password %>
+          <%= f.password_field :password, class: "form-control center", id: "pass1", placeholder: :password %>
         </div>
         <div class="form-group">
-          <%= f.password_field :password_confirmation, class: "form-control center", placeholder: :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: "form-control center", id: "pass2", placeholder: :password_confirmation %>
         </div>
         <br>
-        <%= f.submit "Submit", class: "btn btn-primary" %>
+        <%= f.submit "Submit", class: "btn btn-primary", id: "submit" %>
 
       <% end %>
     </div>
