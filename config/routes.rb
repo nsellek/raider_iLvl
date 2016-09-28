@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   # guild paths
   resources :guilds
   resources :raid_groups
+  # raid_groups paths
+  get "raid_groups/:id/add_members" => "raid_groups#add_members", as: "group_members"
 
 end

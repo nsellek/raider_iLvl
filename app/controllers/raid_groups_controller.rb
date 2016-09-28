@@ -1,5 +1,5 @@
 class RaidGroupsController < ApplicationController
-
+  before_filter :find_group, only: [:destory, :show, :add_members]
   def new
     @group = RaidGroup.new
   end
@@ -15,16 +15,22 @@ class RaidGroupsController < ApplicationController
   end
 
   def destroy
-    group = RaidGroup.find(params[:id])
-    group.destroy
+    @group.destroy
     redirect_to dashboard_path
   end
 
   def show
-    @group = RaidGroup.find(params[:id])
+  end
+
+  def add_members
+    @guild = current_user.guild
   end
 
   private
+
+  def find_group
+    @group = RaidGroup.find(params[:id])
+  end
 
   def allowed_params
     params.require(:raid_group).permit(:group_name)

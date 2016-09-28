@@ -35,7 +35,7 @@
               <td><%= raid_group.group_name %></td>
               <td><%= raid_group.members.length %></td>
               <td><%= raid_group.average_ilvl %></td>
-              <td><%= button_to "Add Members", nil, class: "btn btn-success", method: :get %></td>
+              <td><%= button_to "Add Members", group_members_path(raid_group), class: "btn btn-success", method: :get %></td>
               <td><%= button_to "View Members", raid_group_path(raid_group), class: "btn btn-primary", method: :get %></td>
               <td><%= button_to "Delete", raid_group_path(raid_group), class: "btn btn-danger", data: {confirm: "Are you sure?"}, method: :delete %></td>
             </tr>
