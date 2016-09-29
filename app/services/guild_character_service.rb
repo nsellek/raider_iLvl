@@ -1,9 +1,9 @@
 class GuildCharacterService
 
-  def self.guild_roster(guild)
+  def self.guild_roster(guild, current_user)
     realm = SpaceCleanerService.clean(guild.realm)
     guild_name = SpaceCleanerService.clean(guild.guild_name)
-    GuildApiCleanerService.clean(get_characters(realm, guild_name))
+    GuildApiCleanerService.clean(get_characters(realm, guild_name), current_user)
   end
 
   def self.get_characters(realm, guild_name)

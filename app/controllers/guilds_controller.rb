@@ -24,7 +24,6 @@ class GuildsController < ApplicationController
   end
 
   def show
-    # @members = GuildCharacterService.guild_roster(@guild)
     @members = current_user.guild.guild_members
   end
 

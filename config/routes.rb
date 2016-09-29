@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "dashboard" => "users#dashboard"
   # guild paths
   resources :guilds
+  get "refresh_guild" => "guild_members#refresh_guild"
   resources :raid_groups
   # raid_groups paths
   get "raid_groups/:id/add_members" => "raid_groups#add_members", as: "group_members"
