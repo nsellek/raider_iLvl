@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914221449) do
+ActiveRecord::Schema.define(version: 20160928023030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "guild_members", force: :cascade do |t|
+    t.string   "name"
+    t.string   "realm"
+    t.integer  "guild_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guild_id"], name: "index_guild_members_on_guild_id", using: :btree
+  end
 
   create_table "guilds", force: :cascade do |t|
     t.string   "guild_name"
@@ -59,6 +68,7 @@ ActiveRecord::Schema.define(version: 20160914221449) do
     t.integer  "guild_id"
   end
 
+  add_foreign_key "guild_members", "guilds"
   add_foreign_key "guilds", "users"
   add_foreign_key "raid_groups", "guilds"
 end
