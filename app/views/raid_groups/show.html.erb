@@ -6,13 +6,13 @@
         <tr>
           <th>Name</th>
           <th>Realm</th>
-          <th>Level</th>
+          <th>iLvl</th>
         </tr>
         <% @group.members.each do |member| %>
         <tr>
           <td><%= member['name'] %></td>
           <td><%= member["realm"] %></td>
-          <td><%= member["level"] %></td>
+          <td><%= member["iLvl"] %></td>
         </tr>
         <% end %>
       </table>

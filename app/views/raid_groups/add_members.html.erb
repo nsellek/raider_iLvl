@@ -1,1 +1,27 @@
 <%= button_to "Back", dashboard_path, class: "btn btn-primary", method: :get %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= form_tag save_members_path(@group) do %>
+        <%= submit_tag "Add Members", class: "btn btn-success" %>
+        <br>
+        <table class="table">
+          <tr>
+            <th>Name</th>
+            <th>Realm</th>
+            <th>Level</th>
+            <th>Add?</th>
+          </tr>
+          <% @guild_members.each do |member| %>
+          <tr>
+            <td><%= member['name'] %></td>
+            <td><%= member["realm"] %></td>
+            <td><%= member["level"] %></td>
+            <td><%= check_box_tag "members[]", member.id %></td>
+          </tr>
+          <% end %>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

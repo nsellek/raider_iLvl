@@ -1,5 +1,5 @@
 class RaidGroupsController < ApplicationController
-  before_filter :find_group, only: [:destroy, :show, :add_members]
+  before_filter :find_group, only: [:destroy, :show, :add_members, :save_members]
   def new
     @group = RaidGroup.new
   end
@@ -24,7 +24,13 @@ class RaidGroupsController < ApplicationController
 
   def add_members
     @guild = current_user.guild
-    @guild_member = @guild.guild_members
+    @guild_members = @guild.guild_members
+  end
+
+  def save_members
+    members = params[:members]
+    MemberAdderService.add_members(members, @group)
+    redirect_to raid_group_path(@group)
   end
 
   private
