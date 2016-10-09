@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160929204244) do
+ActiveRecord::Schema.define(version: 20161009194051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160929204244) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "level"
+    t.string   "ilvl"
     t.index ["guild_id"], name: "index_guild_members_on_guild_id", using: :btree
   end
 
@@ -54,6 +55,15 @@ ActiveRecord::Schema.define(version: 20160929204244) do
     t.index ["guild_id"], name: "index_raid_groups_on_guild_id", using: :btree
   end
 
+  create_table "raid_members", force: :cascade do |t|
+    t.integer  "guild_member_id"
+    t.integer  "raid_group_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["guild_member_id"], name: "index_raid_members_on_guild_member_id", using: :btree
+    t.index ["raid_group_id"], name: "index_raid_members_on_raid_group_id", using: :btree
+  end
+
   create_table "realms", force: :cascade do |t|
     t.string   "realm_name"
     t.datetime "created_at", null: false
@@ -72,4 +82,6 @@ ActiveRecord::Schema.define(version: 20160929204244) do
   add_foreign_key "guild_members", "guilds"
   add_foreign_key "guilds", "users"
   add_foreign_key "raid_groups", "guilds"
+  add_foreign_key "raid_members", "guild_members"
+  add_foreign_key "raid_members", "raid_groups"
 end

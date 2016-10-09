@@ -8,11 +8,11 @@
           <th>Realm</th>
           <th>iLvl</th>
         </tr>
-        <% @group.members.each do |member| %>
+        <% @group.guild_members.each do |member| %>
         <tr>
           <td><%= member['name'] %></td>
           <td><%= member["realm"] %></td>
-          <td><%= member["iLvl"] %></td>
+          <td><%= member["ilvl"] %></td>
         </tr>
         <% end %>
       </table>
