@@ -1,7 +1,10 @@
 <%= button_to "Back", dashboard_path, class: "btn btn-primary", method: :get %>
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-2">
+      <%= button_to "Refresh Members", refresh_members_path(@group), class: 'btn btn-success', method: :get %>
+    </div>
+    <div class="col-md-8">
       <table class="table">
         <tr>
           <th>Name</th>

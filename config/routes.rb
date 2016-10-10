@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   # raid_groups paths
   get "raid_groups/:id/add_members" => "raid_groups#add_members", as: "group_members"
   post "raid_groups/:id/save_members" => "raid_groups#save_members", as: "save_members"
+  get "raid_groups/:id/refresh_members" => "raid_groups#refresh_members", as: "refresh_members"
 
 end
