@@ -2,10 +2,12 @@
 <div class="container">
   <div class="row">
     <div id="members">
-      <div class="col-md-8 col-md-offset-2">
-        <%= form_tag save_members_path(@group) do %>
-          <%= submit_tag "Add Members", class: "btn btn-success" %>
-          <input class="search" placeholder="Search by name"/>
+      <%= form_tag save_members_path(@group) do %>
+      <div class="col-md-2">
+        <%= submit_tag "Add Members", class: "btn btn-success", style: "margin-bottom: 10px;" %>
+        <input class="search form-control" placeholder="Search by name"/>
+      </div>
+      <div class="col-md-8">
           <table class="table">
             <tr>
               <th>Name</th>
@@ -24,8 +26,9 @@
             <% end %>
             </tbody>
           </table>
-        <% end %>
+
       </div>
+      <% end %>
     </div>
   </div>
 </div>
