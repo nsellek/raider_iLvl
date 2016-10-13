@@ -9,6 +9,7 @@ class GuildsController < ApplicationController
     @guild = Guild.new(allowed_params)
     @guild.user_id = current_user.id
     if @guild.save!
+      GuildCharacterService.guild_roster(@guild, current_user)
       current_user.guild_id = @guild.id
       current_user.save!(validate: false)
       redirect_to dashboard_path

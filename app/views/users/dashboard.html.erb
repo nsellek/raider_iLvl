@@ -12,6 +12,7 @@
               <td style="vertical-align: middle;"><%= @guild.guild_name %></td>
               <td style="vertical-align: middle;"><%= @guild.realm %></td>
               <td><%= button_to "Show Characters", @guild, class: "btn btn-primary", method: :get %></td>
+              <td><%= button_to "Refresh Guild", refresh_guild_path, class: "btn btn-success", method: :get %></td>
               <td><%= button_to "Delete", guild_path(@guild), class: "btn btn-danger", data: {confirm: "Are you sure?"}, method: :delete %></td>
             </tr>
           </table>
