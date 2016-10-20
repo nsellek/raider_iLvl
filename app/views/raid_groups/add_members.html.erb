@@ -5,7 +5,7 @@
       <%= form_tag save_members_path(@group) do %>
       <div class="col-md-2">
         <%= submit_tag "Add Members", class: "btn btn-success add_members", style: "margin-bottom: 10px;" %>
-        <input class="search form-control" placeholder="Search by name"/>
+        <input class="search form-control" id="search_box" placeholder="Search by name"/>
       </div>
       <div class="col-md-8">
           <table class="table">
