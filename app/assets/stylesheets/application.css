@@ -21,3 +21,8 @@
 .vert-center{
   vertical-align: middle;
 }
+
+body, html{
+  background-color: black;
+  color: white;
+}
