@@ -30,5 +30,25 @@ img#bg {
 
 .title{
   text-decoration: underline;
-  
+}
+
+.btn-legion{
+  background-color: rgba(11, 80, 10, 1) !important;
+  color: white;
+}
+
+.white{
+  color: white;
+}
+
+.spacing{
+  margin-top: 3em;
+}
+
+#footer {
+   position: fixed;
+   left: 0px;
+   bottom: 0px;
+   width: 100%;
+   background: #000000;
 }
