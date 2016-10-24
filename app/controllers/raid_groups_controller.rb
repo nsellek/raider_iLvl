@@ -24,7 +24,8 @@ class RaidGroupsController < ApplicationController
 
   def add_members
     @guild = current_user.guild
-    @guild_members = @guild.guild_members
+    guild_members = @guild.guild_members
+    @remaining_members = guild_members - @group.guild_members
   end
 
   def save_members
