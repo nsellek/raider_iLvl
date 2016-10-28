@@ -22,6 +22,10 @@
   vertical-align: middle;
 }
 
+.black-text{
+  color: black !important;
+}
+
 body, html{
   background-color: black;
   color: white;
