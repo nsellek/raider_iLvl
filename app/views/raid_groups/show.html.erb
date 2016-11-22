@@ -7,12 +7,14 @@
     <div class="col-md-8">
       <table class="table">
         <tr>
+          <th></th>
           <th>Name</th>
           <th>Realm</th>
           <th>iLvl</th>
         </tr>
         <% @group.guild_members.each do |member| %>
         <tr>
+          <td><img src="<%= member['thumbnail'] %>" alt=""></td>
           <td><%= member['name'] %></td>
           <td><%= member["realm"] %></td>
           <td><%= member.items["averageItemLevelEquipped"] %></td>
