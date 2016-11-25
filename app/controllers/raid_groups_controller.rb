@@ -1,5 +1,5 @@
 class RaidGroupsController < ApplicationController
-  before_filter :find_group, except: [:new, :create]
+  before_filter :find_group, except: [:new, :create, :remove_member]
   def new
     @group = RaidGroup.new
   end
@@ -38,6 +38,13 @@ class RaidGroupsController < ApplicationController
     members = @group.guild_members
     RaidMemberRefreshService.refresh_members(members)
     redirect_to raid_group_path(@group)
+  end
+
+  def remove_member
+    session[:return_to] ||= request.referer
+    member = RaidMember.find_by(guild_member_id: params[:member_id], raid_group_id: params[:group_id])
+    member.delete
+    redirect_to session.delete(:return_to)
   end
 
   private
