@@ -19,7 +19,7 @@
 }
 
 .vert-center{
-  vertical-align: middle;
+  vertical-align: middle !important;
 }
 
 .black-text{

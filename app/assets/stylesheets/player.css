@@ -1,0 +1,49 @@
+/*// Place all the styles related to the player controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+.border0{
+  border-style: solid;
+  border-color: gray;
+  border-width: 2px;
+}
+
+.border1{
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+}
+
+.border2{
+  border-style: solid;
+  border-color: green;
+  border-width: 2px;
+}
+
+.border3{
+  border-style: solid;
+  border-color: blue;
+  border-width: 2px;
+}
+
+.border4{
+  border-style: solid;
+  border-color: purple;
+  border-width: 2px;
+}
+
+.border5{
+  border-style: solid;
+  border-color: orange;
+  border-width: 2px;
+}
+
+.border6{
+  border-style: solid;
+  border-color: #e6cc80;
+  border-width: 2px;
+}
+
+.list{
+  list-style: none;
+}

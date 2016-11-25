@@ -20,5 +20,7 @@ Rails.application.routes.draw do
   post "raid_groups/:id/save_members" => "raid_groups#save_members", as: "save_members"
   get "raid_groups/:id/refresh_members" => "raid_groups#refresh_members", as: "refresh_members"
   delete "raid_groups/:group_id/delete_member/:member_id" => "raid_groups#remove_member", as: "remove_member"
+  # player paths
+  get "view_player/:id/items" => "player#view_player", as: "view_player"
 
 end

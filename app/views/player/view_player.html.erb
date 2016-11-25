@@ -1,0 +1,33 @@
+<%= button_to "Back", session.delete(:return_to), class: "btn btn-primary", method: :get %>
+<div class="center">
+  <h3>Items of <%= @player.name %></h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <table class="table">
+          <tr>
+            <th></th>
+            <th class="center">Slot</th>
+            <th class="center">Name</th>
+            <th class="center">iLvl</th>
+            <th class="center">Stats</th>
+          </tr>
+          <% @items.each do |item| %>
+          <tr>
+            <td><img src="http://media.blizzard.com/wow/icons/36/<%= item[1]["icon"] %>.jpg" alt="<%= item[1]["icon"] %>" class="border<%= item[1]["quality"] %>"></td>
+            <td><%= item[0].capitalize %></td>
+            <td><%= item[1]["name"] %></td>
+            <td><%= item[1]["itemLevel"] %></td>
+            <td>
+              <span>Armor: <%= item[1]['armor'] %></span>
+              <% item[1]['stats'].each do |stat| %>
+              | <span> + <%= stat['amount'] %> <%= @stat_list[stat['stat']] %></span>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
