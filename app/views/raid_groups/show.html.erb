@@ -13,7 +13,7 @@
           <th>iLvl</th>
           <th>Actions</th>
         </tr>
-        <% @group.guild_members.each do |member| %>
+        <% @members.each do |member| %>
         <tr>
           <td><img src="<%= member['thumbnail'] %>" alt=""></td>
           <td><%= member['name'] %></td>

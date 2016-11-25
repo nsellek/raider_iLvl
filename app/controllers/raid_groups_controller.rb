@@ -20,6 +20,7 @@ class RaidGroupsController < ApplicationController
   end
 
   def show
+    @members = @group.guild_members.sort {|a,b| b.items["averageItemLevelEquipped"] <=> a.items["averageItemLevelEquipped"]}
   end
 
   def add_members
