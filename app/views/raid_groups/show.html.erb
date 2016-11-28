@@ -19,8 +19,8 @@
           <td class= "center vert-center"><%= member['name'] %></td>
           <td class= "center vert-center"><%= member["realm"] %></td>
           <td class= "center vert-center"><%= member.items["averageItemLevelEquipped"] %></td>
+          <td class="center vert-center"><%= button_to "View", view_player_path(member), class: "btn btn-primary", method: :get %></td>
           <td class= "center vert-center"><%= button_to "Remove", remove_member_path(group_id: @group.id, member_id: member.id), class: "btn btn-danger", method: :delete %></td>
-          <td class="vert-center"><%= button_to "View", view_player_path(member), class: "btn btn-primary", method: :get %></td>
         </tr>
         <% end %>
       </table>

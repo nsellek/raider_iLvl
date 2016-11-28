@@ -14,15 +14,16 @@
           </tr>
           <% @items.each do |item| %>
           <tr>
-            <td><img src="http://media.blizzard.com/wow/icons/36/<%= item[1]["icon"] %>.jpg" alt="<%= item[1]["icon"] %>" class="border<%= item[1]["quality"] %>"></td>
-            <td><%= item[0].capitalize %></td>
-            <td><%= item[1]["name"] %></td>
-            <td><%= item[1]["itemLevel"] %></td>
-            <td>
-              <span>Armor: <%= item[1]['armor'] %></span>
+            <td class="center vert-center"><img src="http://media.blizzard.com/wow/icons/36/<%= item[1]["icon"] %>.jpg" alt="<%= item[1]["icon"] %>" class="border<%= item[1]["quality"] %>"></td>
+            <td class="center vert-center"><%= item[0].capitalize %></td>
+            <td class="center vert-center"><%= item[1]["name"] %></td>
+            <td class="center vert-center"><%= item[1]["itemLevel"] %></td>
+            <td class="center vert-center">
+              <ul class="list">
               <% item[1]['stats'].each do |stat| %>
-              | <span> + <%= stat['amount'] %> <%= @stat_list[stat['stat']] %></span>
+              <li>+ <%= stat['amount'] %> <%= @stat_list[stat['stat']] %></li>
               <% end %>
+              </ul>
             </td>
           </tr>
           <% end %>
