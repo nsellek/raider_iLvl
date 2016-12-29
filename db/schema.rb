@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122141154) do
+ActiveRecord::Schema.define(version: 20161209195314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20161122141154) do
     t.string   "ilvl"
     t.json     "items"
     t.string   "thumbnail"
+    t.string   "class_name"
     t.index ["guild_id"], name: "index_guild_members_on_guild_id", using: :btree
   end
 
