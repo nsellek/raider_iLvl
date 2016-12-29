@@ -5,7 +5,7 @@ main = function(){
 
 listSearch = function(){
   var options = {
-    valueNames: [ 'name' ]
+    valueNames: [ 'name', 'Class' ]
   };
 
   var userList = new List('members', options);
