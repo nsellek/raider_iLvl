@@ -15,7 +15,7 @@
         </tr>
         <% @members.each do |member| %>
         <tr>
-          <td class= "center vert-center"><img src="<%= member['thumbnail'] %>" alt=""></td>
+          <td class= "center vert-center"><img src="<%= member['thumbnail'] %>" alt="<%= member['name'] %>"></td>
           <td class= "center vert-center"><%= member['name'] %></td>
           <td class= "center vert-center"><%= member["realm"] %></td>
           <td class= "center vert-center"><%= member.items["averageItemLevelEquipped"] %></td>
