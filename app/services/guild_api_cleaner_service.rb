@@ -10,6 +10,6 @@ class GuildApiCleanerService
   end
 
   def self.add_thumbnail_path(member)
-    member["character"]["thumbnail"] = "http://us.battle.net/static-render/us/#{member["character"]["thumbnail"]}"
+    member["character"]["thumbnail"] = "https://render-us.worldofwarcraft.com/character/#{member["character"]["thumbnail"]}"
   end
 end
