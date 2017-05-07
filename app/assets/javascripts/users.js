@@ -13,19 +13,19 @@ checkPasswordMatch = function() {
   btn.attr("disabled", "disabled");
 
   pass1.keyup(function(){
-    if(pass1.val() == pass2.val()){
-      btn.removeAttr("disabled");
-    } else{
-      btn.attr("disabled", "disabled");
-    }
+    unlockPass();
   });
   pass2.keyup(function(){
-    if(pass1.val() == pass2.val()){
-      btn.removeAttr("disabled");
-    } else{
-      btn.attr("disabled", "disabled");
-    }
+    unlockPass();
   });
+}
+
+unlockPass = function(){
+  if(pass1.val() === pass2.val()){
+    btn.removeAttr("disabled");
+  } else{
+    btn.attr("disabled", "disabled");
+  }
 }
 
 $(document).on("turbolinks:load", main());
